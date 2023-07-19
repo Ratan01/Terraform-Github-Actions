@@ -5,6 +5,14 @@ provider "azurerm" {
   subscription_id= "fab6bd82-e9fb-4229-91d4-476d41c138fb"
   tenant_id= "dc07ee3a-4d6e-436e-b3f4-29e1cc532ced"
 }
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "3.0.2"
+    }
+  }
+}
 resource "azurerm_resource_group" "RG" {
   name     = "Ratan-TerraformVM"
   location = "West Europe"
