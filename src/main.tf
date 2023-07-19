@@ -15,7 +15,7 @@ terraform {
 }
 resource "azurerm_resource_group" "rg12" {
   name     = "terraform-github-cicd"
-  location = "West Europe"
+  location = "East US"
   tags = {
     owner="Ratan"
   }
