@@ -1,5 +1,6 @@
-
-# resource group information
+provider "azurerm" {
+  features {}
+}
 resource "azurerm_resource_group" "RG" {
   name     = "Ratan-TerraformVM"
   location = "West Europe"
