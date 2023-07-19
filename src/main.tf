@@ -1,7 +1,4 @@
-provider "azurerm" {
-  features {
-  }
-  }
+
 # resource group information
 resource "azurerm_resource_group" "RG" {
   name     = "Ratan-TerraformVM"
