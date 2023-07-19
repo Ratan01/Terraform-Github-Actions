@@ -51,7 +51,7 @@ resource "azurerm_network_interface" "nic" {
 }
 
 # windows virtual machine information
-resource "azurerm_windows_virtual_machine" "vm12" {
+resource "azurerm_windows_virtual_machine" "vm1" {
   name                = "tfa-vm"
   resource_group_name = azurerm_resource_group.rg12.name
   location            = azurerm_resource_group.rg12.location
