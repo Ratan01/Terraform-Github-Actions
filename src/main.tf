@@ -13,8 +13,8 @@ terraform {
     }
   }
 }
-resource "azurerm_resource_group" "rg" {
-  name     = "Ratan-TerraformVM"
+resource "azurerm_resource_group" "rg12" {
+  name     = "terraform-github"
   location = "West Europe"
   tags = {
     owner="Ratan"
@@ -23,16 +23,16 @@ resource "azurerm_resource_group" "rg" {
 
 # virtual network information
 resource "azurerm_virtual_network" "vnet" {
-  name                = "ratan-network"
+  name                = "network12"
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg12.location
+  resource_group_name = azurerm_resource_group.rg12.name
 }
 
 # subnet information
 resource "azurerm_subnet" "subnet" {
   name                 = "vmsubnet"
-  resource_group_name  = azurerm_resource_group.rg.name
+  resource_group_name  = azurerm_resource_group.rg12.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.2.0/24"]
 }
@@ -40,8 +40,8 @@ resource "azurerm_subnet" "subnet" {
 # network interface information
 resource "azurerm_network_interface" "nic" {
   name                = "ratan-nic"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg12.location
+  resource_group_name = azurerm_resource_group.rg12.name
 
   ip_configuration {
     name                          = "internal"
@@ -52,9 +52,9 @@ resource "azurerm_network_interface" "nic" {
 
 # windows virtual machine information
 resource "azurerm_windows_virtual_machine" "vm12" {
-  name                = "tf-vm"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  name                = "tfa-vm"
+  resource_group_name = azurerm_resource_group.rg12.name
+  location            = azurerm_resource_group.rg12.location
   size                = "Standard_F2"
   admin_username      = "adminuser"
   admin_password      = "P@$$w0rd1234!"
